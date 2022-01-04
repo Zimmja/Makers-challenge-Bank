@@ -70,8 +70,9 @@ I decided I would need the following objects to fulfill these stories:
 
 1. A **Transaction** object
 
-   - Initiated with a timestamp, current account balance, transaction amount and a boolean denoting credit or debit
-   - Function to extract all properties, to be read in the Statment object
+   - Initiated with a timestamp, account balance at time of creation, transaction amount and a boolean denoting credit or debit
+   - Function to calculate the new balance when transaction amount is applied
+   - Function to extract all properties, to be read in the Statement object
 
 2. A **Statement** object
 

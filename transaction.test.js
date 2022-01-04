@@ -1,7 +1,12 @@
 const Transaction = require("./transaction.js");
 
-const testTransaction = new Transaction();
+const testTransaction = new Transaction(new Date(), 100.5, 50, true);
 
-test("Returns Hello World!", () => {
-  expect(testTransaction.sayHello()).toEqual("Hello World!");
+test("Packages data into an easily readable format", () => {
+  expect(testTransaction.getData()).toEqual({
+    time: "04/01/2022",
+    balance: 150.5,
+    credit: 50,
+    debit: 0,
+  });
 });
