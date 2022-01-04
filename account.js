@@ -7,6 +7,12 @@ class Account {
     this.transactions = [];
   }
 
+  statement = () => {
+    const viewSt = new Statement(this.transactions);
+    viewSt.printStatement();
+    return this.transactions.length;
+  };
+
   deposit = (amount, testTrans = null) => {
     this.handleTransaction(amount, true, testTrans);
   };
@@ -37,3 +43,4 @@ module.exports = Account;
 // console.log(myAccount.balance);
 // myAccount.withdraw(3);
 // console.log(myAccount.balance);
+// myAccount.statement();

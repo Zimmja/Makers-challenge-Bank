@@ -14,8 +14,9 @@ const transWith01 = { getData: () => with01 };
 describe(".deposit and .withdraw", () => {
   test("Create a new transaction", () => {
     const testTrans = tAcc.transactions.length;
-    tAcc.deposit(10, transDep01);
-    expect(tAcc.transactions.length).toBe(testTrans + 1);
+    tAcc.deposit(0, transDep01);
+    tAcc.withdraw(0, transWith01);
+    expect(tAcc.transactions.length).toBe(testTrans + 2);
   });
 
   test("Set Account.balance to the balance value of the transaction", () => {
@@ -25,4 +26,10 @@ describe(".deposit and .withdraw", () => {
     tAcc.withdraw(0, transWith01);
     expect(tAcc.balance).toBe(6);
   });
+});
+
+describe(".statement returns the number of transactions", () => {
+  expect(tAcc.statement()).toEqual(0);
+  tAcc.deposit(0, transDep01);
+  expect(tAcc.statement()).toEqual(1);
 });
