@@ -6,6 +6,8 @@ class Transaction {
     this.isDeposit = isDeposit;
   }
 
+  // Primary function
+  //----------------------------------------------------------------
   getData = () => {
     return {
       time: this.transDate(),
@@ -15,6 +17,8 @@ class Transaction {
     };
   };
 
+  // Define the values within the hash returned by getData()
+  //----------------------------------------------------------------
   transDebit = (amount = this.amount) => {
     return !this.isDeposit ? this.formatMoney(amount) : null;
   };
@@ -34,6 +38,8 @@ class Transaction {
     return `${day}/${month}/${year}`;
   };
 
+  // Format the values within the hash returned by getData()
+  //----------------------------------------------------------------
   formatMoney = (balance) => {
     const balanceInt = parseInt(balance);
     if (balanceInt === balance) return `${balance}.00`;
