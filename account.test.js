@@ -8,16 +8,13 @@ const with01 = {
 };
 const transDep01 = { getData: () => dep01 };
 const transWith01 = { getData: () => with01 };
-const testStatement = { printStatement: () => true };
+const tAcc = new Account();
 
 describe(".deposit and .withdraw", () => {
-  const tAcc = new Account();
-
   test("Create a new transaction", () => {
-    const testTrans = tAcc.transactions.length;
     tAcc.deposit(0, transDep01);
     tAcc.withdraw(0, transWith01);
-    expect(tAcc.transactions.length).toBe(testTrans + 2);
+    expect(tAcc.transactions.length).toBe(2);
   });
 
   test("Set Account.balance to the balance value of the transaction", () => {
@@ -35,11 +32,7 @@ describe(".deposit and .withdraw", () => {
 });
 
 describe(".statement", () => {
-  const tAcc = new Account();
-
-  test("Returns the number of transactions", () => {
-    expect(tAcc.statement(testStatement)).toEqual(0);
-    tAcc.deposit(0, transDep01);
-    expect(tAcc.statement(testStatement)).toEqual(1);
+  test("Returns undefined", () => {
+    expect(tAcc.statement({ printStatement: () => true })).toBeUndefined();
   });
 });

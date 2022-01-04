@@ -12,7 +12,6 @@ class Account {
   statement = (testStmnt = null) => {
     const viewSt = this.createStmntObj(testStmnt);
     viewSt.printStatement();
-    return this.transactions.length;
   };
 
   deposit = (amount, testTrans = null) => {
