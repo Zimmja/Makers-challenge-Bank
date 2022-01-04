@@ -30,8 +30,10 @@ describe(".deposit and .withdraw", () => {
     );
   });
 
-  expect(tAcc.deposit(10)).toBeUndefined();
-  expect(tAcc.withdraw(10)).toBeUndefined();
+  test("Checking Transaction objects for 100% coverage", () => {
+    expect(tAcc.deposit(10)).not.toBeUndefined();
+    expect(tAcc.withdraw(10)).not.toBeUndefined();
+  });
 });
 
 describe(".statement", () => {
@@ -39,5 +41,7 @@ describe(".statement", () => {
     expect(tAcc.statement({ printStatement: () => true })).toBeUndefined();
   });
 
-  expect(tAcc.statement()).toBeUndefined();
+  test("Checking Statement objects for 100% coverage", () => {
+    expect(tAcc.statement()).toBeUndefined();
+  });
 });
