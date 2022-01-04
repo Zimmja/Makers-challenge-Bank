@@ -21,12 +21,10 @@ class Account {
     this.handleTransaction(amount, false, testTrans);
   };
 
-  handleTransaction = (amount, isDeposit, testTrans) => {
+  handleTransaction = (amount, dep, test) => {
     amount = Number(amount);
     if (isNaN(amount)) throw "Entered value is not a number";
-    const trans = this.testing()
-      ? testTrans
-      : new Transaction(this.balance, amount, isDeposit);
+    const trans = this.createTransaction(dep, test);
     this.transactions.push(trans);
     this.setBalance(trans.getData().balance);
   };
@@ -35,16 +33,13 @@ class Account {
     this.balance = Number(amount);
   };
 
+  createTransaction = (isDeposit, testTrans) => {
+    return this.testing()
+      ? testTrans
+      : new Transaction(this.balance, amount, isDeposit);
+  };
+
   testing = () => process.env.NODE_ENV === "test";
 }
 
 module.exports = Account;
-
-// const myAccount = new Account();
-// myAccount.deposit(10.999);
-// console.log(myAccount.balance);
-// myAccount.withdraw(3);
-// console.log(myAccount.balance);
-// myAccount.statement();
-
-// console.log(isNaN(Number("grt")));
