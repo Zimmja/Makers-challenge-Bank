@@ -7,7 +7,15 @@ class Transaction {
   }
 
   getData = () => {
-    return { time: this.transDate(), balance: this.transBalance() };
+    return {
+      time: this.transDate(),
+      balance: this.transBalance(),
+      credit: this.transAmount(),
+    };
+  };
+
+  transAmount = (amount = this.amount) => {
+    return this.formatMoney(amount);
   };
 
   transBalance = (balance = this.balance, amount = this.amount) => {
@@ -15,9 +23,9 @@ class Transaction {
   };
 
   transDate = (time = this.timestamp) => {
-    const day = this.formatTime(time.getDate());
-    const month = this.formatTime(time.getMonth() + 1);
-    const year = this.formatTime(time.getFullYear());
+    const day = this.formatTime(time.getDate()),
+      month = this.formatTime(time.getMonth() + 1),
+      year = this.formatTime(time.getFullYear());
     return `${day}/${month}/${year}`;
   };
 
@@ -33,7 +41,7 @@ class Transaction {
     const decimalNumbers = decimal.split("");
     const decimalLen = decimalNumbers.length;
     if (decimalLen <= 1) return `${decimal}0`;
-    if (decimalLen > 2) return `${decimalNumbers[0]}${decimalNumbers[1]}`;
+    if (decimalLen > 2) return `${decimalNumbers.slice(0, 2).join("")}`;
     return decimal;
   };
 
