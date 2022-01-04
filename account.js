@@ -7,8 +7,7 @@ class Account {
     this.transactions = [];
   }
 
-  deposit = (amount) => {
-    const trans = new Transaction(this.balance, amount);
+  deposit = (amount, trans = new Transaction(this.balance, amount)) => {
     this.transactions.push(trans);
     this.setBalance(trans.getData().balance);
   };
