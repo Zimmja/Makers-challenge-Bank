@@ -9,7 +9,7 @@ class Account {
 
   statement = () => {
     const viewSt = new Statement(this.transactions);
-    viewSt.printStatement();
+    if (!this.testing()) viewSt.printStatement();
     return this.transactions.length;
   };
 
@@ -22,6 +22,8 @@ class Account {
   };
 
   handleTransaction = (amount, isDeposit, testTrans) => {
+    amount = Number(amount);
+    if (isNaN(amount)) throw "Entered value is not a number";
     const trans = this.testing()
       ? testTrans
       : new Transaction(this.balance, amount, isDeposit);
@@ -44,3 +46,5 @@ module.exports = Account;
 // myAccount.withdraw(3);
 // console.log(myAccount.balance);
 // myAccount.statement();
+
+// console.log(isNaN(Number("grt")));

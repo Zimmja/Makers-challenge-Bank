@@ -26,6 +26,15 @@ describe(".deposit and .withdraw", () => {
     tAcc.withdraw(0, transWith01);
     expect(tAcc.balance).toBe(6);
   });
+
+  test("Returns an error if a non-monetary value is entered", () => {
+    expect(() => tAcc.deposit("Ten", transDep01)).toThrowError(
+      "Entered value is not a number"
+    );
+    expect(() => tAcc.deposit("10", transDep01)).not.toThrowError(
+      "Entered value is not a number"
+    );
+  });
 });
 
 describe(".statement returns the number of transactions", () => {
