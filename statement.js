@@ -1,11 +1,17 @@
-class Statement {
-  constructor(transactions) {
-    this.transactions = transactions;
-  }
+// const Transaction = require("./transaction.js");
 
-  getStatement = () => {
-    return "date || credit || debit || balance";
-  };
-}
+// class Statement {
+//   constructor(transactions) {
+//     this.transactions = transactions;
+//   }
 
-module.exports = Statement;
+//   getStatement = () => {
+//     const mappedTrans = this.transactions.map((trans) => {
+//       return `${trans.time} || ${trans.credit} || ${trans.debit} || ${trans.balance}`;
+//     });
+//     const header = ["date || credit || debit || balance"];
+//     return header.concat(mappedTrans);
+//   };
+// }
+
+// module.exports = Statement;

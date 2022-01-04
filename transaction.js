@@ -1,6 +1,6 @@
 class Transaction {
-  constructor(timestamp, balance, amount, isDeposit) {
-    this.timestamp = timestamp;
+  constructor(balance, amount, isDeposit, date = new Date()) {
+    this.date = date;
     this.balance = balance;
     this.amount = amount;
     this.isDeposit = isDeposit;
@@ -10,7 +10,7 @@ class Transaction {
   //----------------------------------------------------------------
   getData = () => {
     return {
-      time: this.transDate(),
+      date: this.transDate(),
       balance: this.transBalance(),
       credit: this.transCredit(),
       debit: this.transDebit(),
@@ -31,7 +31,7 @@ class Transaction {
     return this.formatMoney(balance + amount);
   };
 
-  transDate = (time = this.timestamp) => {
+  transDate = (time = this.date) => {
     const day = this.formatTime(time.getDate()),
       month = this.formatTime(time.getMonth() + 1),
       year = this.formatTime(time.getFullYear());

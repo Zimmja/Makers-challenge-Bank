@@ -5,16 +5,16 @@ const testDate = {
   getMonth: () => 0,
   getFullYear: () => 2022,
 };
-const transDeposit01 = new Transaction(testDate, 100.55, 50.33, true);
-const transWithdrawal01 = new Transaction(testDate, 100.55, 50.33, false);
-const transTooManyDecs = new Transaction(testDate, 100.55, 50.7777777, false);
-const transNoDecs = new Transaction(testDate, 100, 50, false);
-const transOneDec = new Transaction(testDate, 100.5, 50.2, false);
+const transDeposit01 = new Transaction(100.55, 50.33, true, testDate);
+const transWithdrawal01 = new Transaction(100.55, 50.33, false, testDate);
+const transTooManyDecs = new Transaction(100.55, 50.7777777, false, testDate);
+const transNoDecs = new Transaction(100, 50, false, testDate);
+const transOneDec = new Transaction(100.5, 50.2, false, testDate);
 
 describe(".getData", () => {
   test("Returns data for deposits", () => {
     expect(transDeposit01.getData()).toEqual({
-      time: "05/01/2022",
+      date: "05/01/2022",
       balance: "150.88",
       credit: "50.33",
       debit: null,
