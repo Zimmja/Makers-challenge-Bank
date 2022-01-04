@@ -28,7 +28,22 @@ The main goal of this week was to work alone, practice OO design and TDD skills,
 
 I was allowed to choose between Ruby and JavaScript to complete this challenge; I chose JavaScript.
 
-## Setup
+## Interaction
+
+To use this code on your machine:
+
+1. Download the contents of this repo to a local repository
+2. Check node and npm are installed with `node -v` and `npm -v` ; if not, install
+3. If you want to test with Jest, install Jest with `npm install jest` and run `jest` in the console from the root directory (/Bank)
+4. To use in Node:
+   - Open Node.js with `node`
+   - Require the account.js file: `const Account = require("./account.js")`
+   - Create a new account: `const myAccount = new Account`
+   - To make a deposit of e.g. £10.52, enter: `myAccount.deposit(10.52)`
+   - To make a withdrawal of e.g. £5.00, enter: `myAccount.withdraw(5)`
+   - To view a statement, enter: `myAccount.statement()`
+
+## Setup and Technologies used
 
 I began the project with the following steps:
 
@@ -87,8 +102,6 @@ I decided I would need the following objects to fulfill these stories:
 
 ## Process
 
-For testing in the Node.js RPL:
+I created the Transaction class first, followed by the Statement and Account classes. I used a TDD approach through, using Jest to test my classes. In each case, I used mocking to isolate tests and freeze variable inputs (e.g. date). I tried to minimise the impact of allowing objects to be mocked into functions by creating test-specific functions to check tests are running (see the bottom of account.js).
 
-1. Open Node.js with `node`
-2. Require the account.js file: `const Account = require("./account.js")`
-3. Create a new account: `const myAccount = new Account`
+Once all tests were passing, I used Node.js to test for edge cases, and amended the code where I found errors.

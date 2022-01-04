@@ -1,5 +1,5 @@
-// const Transaction = require("./transaction.js");
-// const Statement = require("./statement.js");
+const Transaction = require("./transaction.js");
+const Statement = require("./statement.js");
 
 class Account {
   constructor() {
@@ -9,9 +9,9 @@ class Account {
 
   // Primary functions for use in console
   //----------------------------------------------------------------
-  statement = () => {
-    const viewSt = new Statement(this.transactions);
-    if (!this.testing()) viewSt.printStatement();
+  statement = (testStmnt = null) => {
+    const viewSt = this.createStmntObj(testStmnt);
+    viewSt.printStatement();
     return this.transactions.length;
   };
 
@@ -35,13 +35,17 @@ class Account {
     this.setBalance(trans.getData().balance);
   };
 
-  createTransObj = (amount, dep, test) => {
-    return this.testing() ? test : new Transaction(this.balance, amount, dep);
-  };
-
   setBalance = (amount) => {
     this.balance = Number(amount);
   };
+
+  // Test functions
+  //----------------------------------------------------------------
+  createStmntObj = (test) =>
+    this.testing() ? test : new Statement(this.transactions);
+
+  createTransObj = (amount, dep, test) =>
+    this.testing() ? test : new Transaction(this.balance, amount, dep);
 
   testing = () => process.env.NODE_ENV === "test";
 }
