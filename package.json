@@ -1,0 +1,26 @@
+{
+  "name": "bank",
+  "jest": {
+    "collectCoverage": true
+  },
+  "version": "1.0.0",
+  "description": "As part of the Week 10 technical test at Makers Academy, I was challenged to create a simple programme with the following specification:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zimmja/Makers-challenge-Bank.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zimmja/Makers-challenge-Bank/issues"
+  },
+  "homepage": "https://github.com/Zimmja/Makers-challenge-Bank#readme",
+  "dependencies": {
+    "jest": "^27.4.5"
+  }
+}
