@@ -7,7 +7,10 @@ class Account {
     this.transactions = [];
   }
 
-  deposit = (amount, trans = new Transaction(this.balance, amount)) => {
+  deposit = (amount, testTrans = null) => {
+    const trans = this.testing()
+      ? testTrans
+      : new Transaction(this.balance, amount);
     this.transactions.push(trans);
     this.setBalance(trans.getData().balance);
   };
@@ -15,6 +18,12 @@ class Account {
   setBalance = (amount) => {
     this.balance = Number(amount);
   };
+
+  testing = () => process.env.NODE_ENV === "test";
 }
 
 module.exports = Account;
+
+// const myAccount = new Account();
+// myAccount.deposit(10.999);
+// console.log(myAccount.balance);

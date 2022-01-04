@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1641313737045" clover="3.2.0">
-  <project timestamp="1641313737045" name="All files">
-    <metrics statements="59" coveredstatements="59" conditionals="22" coveredconditionals="21" methods="20" coveredmethods="20" elements="101" coveredelements="100" complexity="0" loc="59" ncloc="59" packages="1" files="3" classes="3"/>
+<coverage generated="1641315199224" clover="3.2.0">
+  <project timestamp="1641315199224" name="All files">
+    <metrics statements="61" coveredstatements="61" conditionals="24" coveredconditionals="22" methods="21" coveredmethods="21" elements="106" coveredelements="104" complexity="0" loc="61" ncloc="61" packages="1" files="3" classes="3"/>
     <file name="account.js" path="/Users/zimmja/Desktop/MAKERS/Week10/Bank/account.js">
-      <metrics statements="10" coveredstatements="10" conditionals="1" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <metrics statements="12" coveredstatements="12" conditionals="3" coveredconditionals="1" methods="4" coveredmethods="4"/>
       <line num="1" count="1" type="stmt"/>
       <line num="2" count="1" type="stmt"/>
       <line num="6" count="1" type="stmt"/>
       <line num="7" count="1" type="stmt"/>
       <line num="10" count="1" type="cond" truecount="0" falsecount="1"/>
-      <line num="11" count="4" type="stmt"/>
-      <line num="12" count="4" type="stmt"/>
-      <line num="15" count="1" type="stmt"/>
-      <line num="16" count="4" type="stmt"/>
-      <line num="20" count="1" type="stmt"/>
+      <line num="11" count="4" type="cond" truecount="1" falsecount="1"/>
+      <line num="14" count="4" type="stmt"/>
+      <line num="15" count="4" type="stmt"/>
+      <line num="18" count="1" type="stmt"/>
+      <line num="19" count="4" type="stmt"/>
+      <line num="22" count="4" type="stmt"/>
+      <line num="25" count="1" type="stmt"/>
     </file>
     <file name="statement.js" path="/Users/zimmja/Desktop/MAKERS/Week10/Bank/statement.js">
       <metrics statements="15" coveredstatements="15" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="7"/>
