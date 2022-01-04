@@ -43,3 +43,43 @@ I began the project with the following steps:
     "collectCoverage": true
   },
 ```
+
+## Planning
+
+Based on the specification, I created the following user stories:
+
+```
+As a customer,
+So I can store my money,
+I want to deposit money into my account.
+
+As a customer,
+So I can use my money,
+I want to be able to withdraw money from my account.
+
+As a customer,
+So I can check all interactions with my account,
+I want to be able to view a statement of deposit / withdral history with timestamps for the account.
+
+As a customer,
+So I can track how much money I have,
+I want to see a balance displayed with my deposit / withdrawal history in my statements.
+```
+
+I decided I would need the following objects to fulfill these stories:
+
+1. A **Transaction** object
+
+   - Initiated with a timestamp, current account balance, transaction amount and a boolean denoting credit or debit
+   - Function to extract all properties, to be read in the Statment object
+
+2. A **Statement** object
+
+   - Initiated with an array of transactions (taken from Account)
+   - Function prints a statement to the console
+
+3. An **Account** object
+
+   - Stores an account balance and a list of transactions
+   - Functions to withdraw and desposit (i.e. create a new transaction object and amend properties accordingly)
+   - Function to view a transaction history (i.e. create and view a new Statement object)
