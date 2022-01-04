@@ -27,5 +27,5 @@ const sPart = new Statement([trans01]);
 const sFull = new Statement([trans01, trans02, trans03]);
 
 test("hello world", () => {
-  expect(sEmpty.printStatement()).toEqual("date || credit || debit || balance");
+  expect(sEmpty.getStatement()).toEqual("date || credit || debit || balance");
 });

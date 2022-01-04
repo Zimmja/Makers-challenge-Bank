@@ -1,6 +1,10 @@
 class Statement {
-  sayHello = () => {
-    return "Hello world!";
+  constructor(transactions) {
+    this.transactions = transactions;
+  }
+
+  getStatement = () => {
+    return "date || credit || debit || balance";
   };
 }
 
