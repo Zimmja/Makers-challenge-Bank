@@ -25,28 +25,28 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>29/29</span>
+                <span class='fraction'>36/36</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">44.44% </span>
+                <span class="strong">86.66% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/9</span>
+                <span class='fraction'>13/15</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>9/9</span>
+                <span class='fraction'>11/11</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>27/27</span>
+                <span class='fraction'>31/31</span>
             </div>
         
             
@@ -109,7 +109,20 @@
 <a name='L50'></a><a href='#L50'>50</a>
 <a name='L51'></a><a href='#L51'>51</a>
 <a name='L52'></a><a href='#L52'>52</a>
-<a name='L53'></a><a href='#L53'>53</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -121,20 +134,31 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -157,7 +181,9 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -172,23 +198,34 @@ class Account {
 &nbsp;
   // Primary functions for use in console
   //----------------------------------------------------------------
-  statement = (testStmnt = <span class="branch-0 cbranch-no" title="branch not covered" >null)</span> =&gt; {
+  statement = (testStmnt = null) =&gt; {
+    if (this.invalidObj(testStmnt)) return;
     const viewSt = this.createStmntObj(testStmnt);
     viewSt.printStatement();
   };
 &nbsp;
-  deposit = (amount, testTrans = <span class="branch-0 cbranch-no" title="branch not covered" >null)</span> =&gt; {
-    this.handleTransaction(amount, true, testTrans);
-    return this.balance;
+  deposit = (amount, testTrans = null) =&gt; {
+    // if (this.invalidObj(testTrans)) return;
+    // this.handleTransaction(amount, true, testTrans);
+    // return this.balance;
+    return this.beginTransaction(amount, true, testTrans);
   };
 &nbsp;
-  withdraw = (amount, testTrans = <span class="branch-0 cbranch-no" title="branch not covered" >null)</span> =&gt; {
-    this.handleTransaction(amount, false, testTrans);
-    return this.balance;
+  withdraw = (amount, testTrans = null) =&gt; {
+    // if (this.invalidObj(testTrans)) return;
+    // this.handleTransaction(amount, false, testTrans);
+    // return this.balance;
+    return this.beginTransaction(amount, false, testTrans);
   };
 &nbsp;
   // Support functions
   //----------------------------------------------------------------
+  beginTransaction = (amount, deposit, test) =&gt; {
+    if (this.invalidObj(test)) return;
+    this.handleTransaction(amount, deposit, test);
+    return this.balance;
+  };
+&nbsp;
   handleTransaction = (amount, dep, test) =&gt; {
     amount = Number(amount);
     if (isNaN(amount)) throw "Entered value is not a number";
@@ -209,6 +246,8 @@ class Account {
   createTransObj = (amount, dep, test) =&gt;
     this.testing() ? test : <span class="branch-1 cbranch-no" title="branch not covered" >new Transaction(this.balance, amount, dep);</span>
 &nbsp;
+  invalidObj = (test) =&gt; this.testing() &amp;&amp; test == null;
+&nbsp;
   testing = () =&gt; process.env.NODE_ENV === "test";
 }
 &nbsp;
@@ -220,7 +259,7 @@ module.exports = Account;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Jan 04 2022 19:18:44 GMT+0000 (Greenwich Mean Time)
+                at Tue Jan 04 2022 21:02:04 GMT+0000 (Greenwich Mean Time)
             </div>
         </div>
         <script src="prettify.js"></script>

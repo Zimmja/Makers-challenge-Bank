@@ -29,10 +29,15 @@ describe(".deposit and .withdraw", () => {
       "Entered value is not a number"
     );
   });
+
+  expect(tAcc.deposit(10)).toBeUndefined();
+  expect(tAcc.withdraw(10)).toBeUndefined();
 });
 
 describe(".statement", () => {
   test("Returns undefined", () => {
     expect(tAcc.statement({ printStatement: () => true })).toBeUndefined();
   });
+
+  expect(tAcc.statement()).toBeUndefined();
 });
