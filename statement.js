@@ -13,7 +13,7 @@ class Statement {
       return `${tDate} ||${tCred}||${tDeb}|| ${tBal}`;
     });
     const header = ["date || credit || debit || balance"];
-    return header.concat(mappedTrans);
+    return header.concat(mappedTrans.reverse());
   };
 
   checkNull = (value) => (value === null ? " " : ` ${value} `);
