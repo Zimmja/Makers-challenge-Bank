@@ -1,17 +1,22 @@
-// const Transaction = require("./transaction.js");
+class Statement {
+  constructor(transactions) {
+    this.transactions = transactions;
+  }
 
-// class Statement {
-//   constructor(transactions) {
-//     this.transactions = transactions;
-//   }
+  getStatement = () => {
+    const mappedTrans = this.transactions.map((trans) => {
+      const tData = trans.getData();
+      const tDate = tData.date,
+        tBal = tData.balance,
+        tCred = this.checkNull(tData.credit),
+        tDeb = this.checkNull(tData.debit);
+      return `${tDate} ||${tCred}||${tDeb}|| ${tBal}`;
+    });
+    const header = ["date || credit || debit || balance"];
+    return header.concat(mappedTrans);
+  };
 
-//   getStatement = () => {
-//     const mappedTrans = this.transactions.map((trans) => {
-//       return `${trans.time} || ${trans.credit} || ${trans.debit} || ${trans.balance}`;
-//     });
-//     const header = ["date || credit || debit || balance"];
-//     return header.concat(mappedTrans);
-//   };
-// }
+  checkNull = (value) => (value === null ? " " : ` ${value} `);
+}
 
-// module.exports = Statement;
+module.exports = Statement;

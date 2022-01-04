@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1641304826698" clover="3.2.0">
-  <project timestamp="1641304826698" name="All files">
-    <metrics statements="31" coveredstatements="31" conditionals="18" coveredconditionals="17" methods="9" coveredmethods="9" elements="58" coveredelements="57" complexity="0" loc="31" ncloc="31" packages="1" files="1" classes="1"/>
+<coverage generated="1641305403228" clover="3.2.0">
+  <project timestamp="1641305403228" name="All files">
+    <metrics statements="44" coveredstatements="44" conditionals="20" coveredconditionals="19" methods="13" coveredmethods="13" elements="77" coveredelements="76" complexity="0" loc="44" ncloc="44" packages="1" files="2" classes="2"/>
+    <file name="statement.js" path="/Users/zimmja/Desktop/MAKERS/Week10/Bank/statement.js">
+      <metrics statements="13" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
+      <line num="3" count="3" type="stmt"/>
+      <line num="6" count="3" type="stmt"/>
+      <line num="7" count="2" type="stmt"/>
+      <line num="8" count="1" type="stmt"/>
+      <line num="9" count="1" type="stmt"/>
+      <line num="10" count="1" type="stmt"/>
+      <line num="11" count="1" type="stmt"/>
+      <line num="12" count="1" type="stmt"/>
+      <line num="13" count="1" type="stmt"/>
+      <line num="15" count="2" type="stmt"/>
+      <line num="16" count="2" type="stmt"/>
+      <line num="19" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="22" count="1" type="stmt"/>
+    </file>
     <file name="transaction.js" path="/Users/zimmja/Desktop/MAKERS/Week10/Bank/transaction.js">
       <metrics statements="31" coveredstatements="31" conditionals="18" coveredconditionals="17" methods="9" coveredmethods="9"/>
       <line num="3" count="5" type="stmt"/>
