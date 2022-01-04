@@ -54,6 +54,3 @@ class Transaction {
 }
 
 module.exports = Transaction;
-
-// const myTrans = new Transaction(new Date(), 100.5, 50, true);
-// console.log(myTrans.formatMoney(150.55));
