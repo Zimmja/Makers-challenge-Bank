@@ -6,11 +6,15 @@ class Transaction {
     this.isDeposit = isDeposit;
   }
 
-  sayHello = () => {
-    return this.welcome;
+  getData = () => {
+    return { time: this.transDate(), balance: this.transBalance() };
   };
 
-  transDate = (time) => {
+  transBalance = (balance = this.balance, amount = this.amount) => {
+    return `${balance + amount}`;
+  };
+
+  transDate = (time = this.timestamp) => {
     const day = this.formatTime(time.getDate());
     const month = this.formatTime(time.getMonth() + 1);
     const year = this.formatTime(time.getFullYear());
