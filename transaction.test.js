@@ -10,6 +10,14 @@ const transWithdrawal01 = new Transaction(100.55, 50.33, false, testDate);
 const transTooManyDecs = new Transaction(100.55, 50.7777777, false, testDate);
 const transNoDecs = new Transaction(100, 50, false, testDate);
 const transOneDec = new Transaction(100.5, 50.2, false, testDate);
+const transDefault = new Transaction(100, 50);
+
+describe("Initiation", () => {
+  test("Can initiate without isDeposit or date specified", () => {
+    const transData = transDefault.getData();
+    expect(transData.credit).toEqual("50.00");
+  });
+});
 
 describe(".getData", () => {
   test("Returns data for deposits", () => {

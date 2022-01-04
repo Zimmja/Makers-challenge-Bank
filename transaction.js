@@ -1,5 +1,5 @@
 class Transaction {
-  constructor(balance, amount, isDeposit, date = new Date()) {
+  constructor(balance, amount, isDeposit = true, date = new Date()) {
     this.date = date;
     this.balance = balance;
     this.amount = amount;
