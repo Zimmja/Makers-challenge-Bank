@@ -10,13 +10,17 @@ class Transaction {
     return {
       time: this.transDate(),
       balance: this.transBalance(),
-      credit: this.transAmount(),
-      debit: null,
+      credit: this.transCredit(),
+      debit: this.transDebit(),
     };
   };
 
-  transAmount = (amount = this.amount) => {
-    return this.formatMoney(amount);
+  transDebit = (amount = this.amount) => {
+    return !this.isDeposit ? this.formatMoney(amount) : null;
+  };
+
+  transCredit = (amount = this.amount) => {
+    return this.isDeposit ? this.formatMoney(amount) : null;
   };
 
   transBalance = (balance = this.balance, amount = this.amount) => {
