@@ -11,6 +11,7 @@ class Transaction {
       time: this.transDate(),
       balance: this.transBalance(),
       credit: this.transAmount(),
+      debit: null,
     };
   };
 
