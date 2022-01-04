@@ -20,11 +20,15 @@ class Transaction {
   // Define the values within the hash returned by getData()
   //----------------------------------------------------------------
   transDebit = (amount = this.amount) => {
-    return !this.isDeposit ? this.formatMoney(amount) : null;
+    return this.transMoney(amount, this.isDeposit);
   };
 
   transCredit = (amount = this.amount) => {
-    return this.isDeposit ? this.formatMoney(amount) : null;
+    return this.transMoney(amount, !this.isDeposit);
+  };
+
+  transMoney = (amount, nullify) => {
+    return nullify ? null : this.formatMoney(amount);
   };
 
   transBalance = (balance = this.balance, amount = this.amount) => {
