@@ -32,6 +32,7 @@ class Transaction {
   };
 
   transBalance = (balance = this.balance, amount = this.amount) => {
+    if (!this.isDeposit) amount = 0 - amount;
     return this.formatMoney(balance + amount);
   };
 

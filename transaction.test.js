@@ -6,10 +6,10 @@ const testDate = {
   getFullYear: () => 2022,
 };
 const transDeposit01 = new Transaction(100.55, 50.33, true, testDate);
-const transWithdrawal01 = new Transaction(100.55, 50.33, false, testDate);
-const transTooManyDecs = new Transaction(100.55, 50.7777777, false, testDate);
-const transNoDecs = new Transaction(100, 50, false, testDate);
-const transOneDec = new Transaction(100.5, 50.2, false, testDate);
+const transWithdrawal01 = new Transaction(100.55, 50, false, testDate);
+const transTooManyDecs = new Transaction(100.55, 50.7777777, true, testDate);
+const transNoDecs = new Transaction(100, 50, true, testDate);
+const transOneDec = new Transaction(100.5, 50.2, true, testDate);
 const transDefault = new Transaction(100, 50);
 
 describe("Initiation", () => {
@@ -32,7 +32,8 @@ describe(".getData", () => {
   test("Returns data for withdrawals", () => {
     const transData = transWithdrawal01.getData();
     expect(transData.credit).toEqual(null);
-    expect(transData.debit).toEqual("50.33");
+    expect(transData.debit).toEqual("50.00");
+    expect(transData.balance).toEqual("50.55");
   });
 });
 
