@@ -1,45 +1,28 @@
 const Account = require("./account.js");
 
-const testAccount = new Account();
+const tAcc = new Account();
 
 const dep01 = {
   balance: "10.00",
 };
-
-const dep02 = {
-  balance: "10.50",
+const with01 = {
+  balance: "6.00",
 };
-
-const dep03 = {
-  balance: "10.99",
-};
-
 const transDep01 = { getData: () => dep01 };
-const transDep02 = { getData: () => dep02 };
-const transDep03 = { getData: () => dep03 };
+const transWith01 = { getData: () => with01 };
 
-describe(".deposit", () => {
-  test("Creates a new transaction", () => {
-    const testTrans = testAccount.transactions.length;
-    testAccount.deposit(10, transDep01);
-    expect(testAccount.transactions.length).toBe(testTrans + 1);
+describe(".deposit and .withdraw", () => {
+  test("Create a new transaction", () => {
+    const testTrans = tAcc.transactions.length;
+    tAcc.deposit(10, transDep01);
+    expect(tAcc.transactions.length).toBe(testTrans + 1);
   });
 
-  test("Increases the balance", () => {
-    checkDesposit(testAccount, 10, transDep01);
-  });
-
-  test("Works with decimals", () => {
-    checkDesposit(testAccount, 10.5, transDep02);
-  });
-
-  test("Works with too many decimals", () => {
-    checkDesposit(testAccount, 10.999999, transDep03);
+  test("Set Account.balance to the balance value of the transaction", () => {
+    tAcc.balance = 0;
+    tAcc.deposit(0, transDep01);
+    expect(tAcc.balance).toBe(10);
+    tAcc.withdraw(0, transWith01);
+    expect(tAcc.balance).toBe(6);
   });
 });
-
-const checkDesposit = (account, amount, transaction) => {
-  account.balance = 0;
-  account.deposit(amount, transaction);
-  expect(account.balance).toBe(Number(transaction.getData().balance));
-};
