@@ -84,3 +84,11 @@ I decided I would need the following objects to fulfill these stories:
    - Stores an account balance and a list of transactions
    - Functions to withdraw and desposit (i.e. create a new transaction object and amend properties accordingly)
    - Function to view a transaction history (i.e. create and view a new Statement object)
+
+## Process
+
+For testing in the Node.js RPL:
+
+1. Open Node.js with `node`
+2. Require the account.js file: `const Account = require("./account.js")`
+3. Create a new account: `const myAccount = new Account`

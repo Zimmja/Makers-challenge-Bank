@@ -1,5 +1,5 @@
-const Transaction = require("./transaction.js");
-const Statement = require("./statement.js");
+// const Transaction = require("./transaction.js");
+// const Statement = require("./statement.js");
 
 class Account {
   constructor() {
@@ -7,6 +7,8 @@ class Account {
     this.transactions = [];
   }
 
+  // Primary functions for use in console
+  //----------------------------------------------------------------
   statement = () => {
     const viewSt = new Statement(this.transactions);
     if (!this.testing()) viewSt.printStatement();
@@ -15,24 +17,26 @@ class Account {
 
   deposit = (amount, testTrans = null) => {
     this.handleTransaction(amount, true, testTrans);
+    return this.balance;
   };
 
   withdraw = (amount, testTrans = null) => {
     this.handleTransaction(amount, false, testTrans);
+    return this.balance;
   };
 
+  // Support functions
+  //----------------------------------------------------------------
   handleTransaction = (amount, dep, test) => {
     amount = Number(amount);
     if (isNaN(amount)) throw "Entered value is not a number";
-    const trans = this.createTransObj(dep, test);
+    const trans = this.createTransObj(amount, dep, test);
     this.transactions.push(trans);
     this.setBalance(trans.getData().balance);
   };
 
-  createTransObj = (isDeposit, testTrans) => {
-    return this.testing()
-      ? testTrans
-      : new Transaction(this.balance, amount, isDeposit);
+  createTransObj = (amount, dep, test) => {
+    return this.testing() ? test : new Transaction(this.balance, amount, dep);
   };
 
   setBalance = (amount) => {

@@ -37,8 +37,11 @@ describe(".deposit and .withdraw", () => {
   });
 });
 
-describe(".statement returns the number of transactions", () => {
-  expect(tAcc.statement()).toEqual(0);
-  tAcc.deposit(0, transDep01);
-  expect(tAcc.statement()).toEqual(1);
+describe(".statement", () => {
+  test("Returns undefined", () => {
+    tAcc.transactions = [];
+    expect(tAcc.statement()).toEqual(0);
+    tAcc.deposit(0, transDep01);
+    expect(tAcc.statement()).toEqual(1);
+  });
 });
