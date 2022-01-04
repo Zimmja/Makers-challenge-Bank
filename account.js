@@ -24,19 +24,19 @@ class Account {
   handleTransaction = (amount, dep, test) => {
     amount = Number(amount);
     if (isNaN(amount)) throw "Entered value is not a number";
-    const trans = this.createTransaction(dep, test);
+    const trans = this.createTransObj(dep, test);
     this.transactions.push(trans);
     this.setBalance(trans.getData().balance);
   };
 
-  setBalance = (amount) => {
-    this.balance = Number(amount);
-  };
-
-  createTransaction = (isDeposit, testTrans) => {
+  createTransObj = (isDeposit, testTrans) => {
     return this.testing()
       ? testTrans
       : new Transaction(this.balance, amount, isDeposit);
+  };
+
+  setBalance = (amount) => {
+    this.balance = Number(amount);
   };
 
   testing = () => process.env.NODE_ENV === "test";
