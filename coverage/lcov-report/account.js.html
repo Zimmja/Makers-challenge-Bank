@@ -100,48 +100,44 @@
 <a name='L41'></a><a href='#L41'>41</a>
 <a name='L42'></a><a href='#L42'>42</a>
 <a name='L43'></a><a href='#L43'>43</a>
-<a name='L44'></a><a href='#L44'>44</a>
-<a name='L45'></a><a href='#L45'>45</a>
-<a name='L46'></a><a href='#L46'>46</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L44'></a><a href='#L44'>44</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -156,34 +152,32 @@ class Account {
     this.transactions = [];
   }
 &nbsp;
-  // STOP;
-&nbsp;
   // Primary functions for use in console
   //----------------------------------------------------------------
+  deposit = (amount, trsx = new Transaction(this.balance, amount, true)) =&gt; {
+    return this.beginTransaction(amount, trsx);
+  };
+&nbsp;
+  withdraw = (amount, trsx = new Transaction(this.balance, amount, false)) =&gt; {
+    return this.beginTransaction(amount, trsx);
+  };
+&nbsp;
   statement = (stmnt = new Statement(this.transactions)) =&gt; {
     stmnt.printStatement();
   };
 &nbsp;
-  deposit = (amount, trans = new Transaction(this.balance, amount, true)) =&gt; {
-    return this.beginTransaction(amount, trans);
-  };
-&nbsp;
-  withdraw = (amount, trans = new Transaction(this.balance, amount, false)) =&gt; {
-    return this.beginTransaction(amount, trans);
-  };
-&nbsp;
   // Support functions
   //----------------------------------------------------------------
-  beginTransaction = (amount, trans) =&gt; {
+  beginTransaction = (amount, transaction) =&gt; {
     amount = Number(amount);
     if (isNaN(amount)) throw "Entered value is not a number";
-    this.handleTransaction(trans);
-    return this.balance;
+    return this.handleTransaction(transaction);
   };
 &nbsp;
-  handleTransaction = (trans) =&gt; {
-    this.transactions.push(trans);
-    this.setBalance(trans.getData().balance);
+  handleTransaction = (transaction) =&gt; {
+    this.transactions.push(transaction);
+    this.setBalance(transaction.getData().balance);
+    return this.balance;
   };
 &nbsp;
   setBalance = (amount) =&gt; {
@@ -199,7 +193,7 @@ module.exports = Account;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Jan 04 2022 21:19:33 GMT+0000 (Greenwich Mean Time)
+                at Tue Jan 04 2022 22:19:19 GMT+0000 (Greenwich Mean Time)
             </div>
         </div>
         <script src="prettify.js"></script>

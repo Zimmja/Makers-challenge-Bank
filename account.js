@@ -7,34 +7,32 @@ class Account {
     this.transactions = [];
   }
 
-  // STOP;
-
   // Primary functions for use in console
   //----------------------------------------------------------------
+  deposit = (amount, trsx = new Transaction(this.balance, amount, true)) => {
+    return this.beginTransaction(amount, trsx);
+  };
+
+  withdraw = (amount, trsx = new Transaction(this.balance, amount, false)) => {
+    return this.beginTransaction(amount, trsx);
+  };
+
   statement = (stmnt = new Statement(this.transactions)) => {
     stmnt.printStatement();
   };
 
-  deposit = (amount, trans = new Transaction(this.balance, amount, true)) => {
-    return this.beginTransaction(amount, trans);
-  };
-
-  withdraw = (amount, trans = new Transaction(this.balance, amount, false)) => {
-    return this.beginTransaction(amount, trans);
-  };
-
   // Support functions
   //----------------------------------------------------------------
-  beginTransaction = (amount, trans) => {
+  beginTransaction = (amount, transaction) => {
     amount = Number(amount);
     if (isNaN(amount)) throw "Entered value is not a number";
-    this.handleTransaction(trans);
-    return this.balance;
+    return this.handleTransaction(transaction);
   };
 
-  handleTransaction = (trans) => {
-    this.transactions.push(trans);
-    this.setBalance(trans.getData().balance);
+  handleTransaction = (transaction) => {
+    this.transactions.push(transaction);
+    this.setBalance(transaction.getData().balance);
+    return this.balance;
   };
 
   setBalance = (amount) => {

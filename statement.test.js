@@ -26,22 +26,22 @@ const sEmpty = new Statement([]);
 const sPart = new Statement([trans01]);
 const sFull = new Statement([trans01, trans02, trans03]);
 
-describe(".getStatement", () => {
+describe(".createLinesArray", () => {
   test("Returns column header only if transactions are empty", () => {
-    expect(sEmpty.getStatement()).toEqual([
+    expect(sEmpty.createLinesArray()).toEqual([
       "date || credit || debit || balance",
     ]);
   });
 
   test("Returns a array of statement lines, starting with the header", () => {
-    expect(sPart.getStatement()).toEqual([
+    expect(sPart.createLinesArray()).toEqual([
       "date || credit || debit || balance",
       "10/01/2023 || 1000.00 || || 1000.00",
     ]);
   });
 
   test("The most recent transactions appear at the top of the list", () => {
-    expect(sFull.getStatement()).toEqual([
+    expect(sFull.createLinesArray()).toEqual([
       "date || credit || debit || balance",
       "14/01/2023 || || 500.00 || 2500.00",
       "13/01/2023 || 2000.00 || || 3000.00",
@@ -51,7 +51,7 @@ describe(".getStatement", () => {
 });
 
 describe(".printStatement", () => {
-  test("Prints each line of .getStatement to the console", () => {
+  test("Prints each line of .createLinesArray to the console", () => {
     console.log = jest.fn();
     sFull.printStatement();
     expect(console.log.mock.calls.length).toBe(4);

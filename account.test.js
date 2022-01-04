@@ -31,8 +31,9 @@ describe(".deposit and .withdraw", () => {
   });
 
   test("Checking Transaction objects for 100% coverage", () => {
-    expect(tAcc.deposit(10)).not.toBeUndefined();
-    expect(tAcc.withdraw(10)).not.toBeUndefined();
+    const unmockedAccount = new Account();
+    expect(unmockedAccount.deposit(10)).toEqual(10);
+    expect(unmockedAccount.withdraw(5)).toEqual(5);
   });
 });
 

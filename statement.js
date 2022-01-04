@@ -1,25 +1,27 @@
 class Statement {
   constructor(transactions) {
-    this.transactions = transactions;
+    this.transArr = transactions;
   }
 
   printStatement = () => {
-    const sArr = this.getStatement();
-    sArr.forEach((line) => console.log(line));
+    const lines = this.createLinesArray();
+    lines.forEach((line) => console.log(line));
   };
 
-  getStatement = () => {
-    const mappedTrans = this.transactions.map((trans) =>
-      this.createTransLine(trans.getData())
-    );
+  createLinesArray = () => {
     const header = ["date || credit || debit || balance"];
-    return header.concat(mappedTrans.reverse());
+    return header.concat(this.transactionLines());
   };
 
-  createTransLine = (trans) => {
-    const tCred = this.checkNull(trans.credit),
-      tDeb = this.checkNull(trans.debit);
-    return `${trans.date} ||${tCred}||${tDeb}|| ${trans.balance}`;
+  transactionLines = () => {
+    const lines = this.transArr.map((t) => this.createLine(t.getData()));
+    return lines.reverse();
+  };
+
+  createLine = (trsx) => {
+    const tCred = this.checkNull(trsx.credit),
+      tDeb = this.checkNull(trsx.debit);
+    return `${trsx.date} ||${tCred}||${tDeb}|| ${trsx.balance}`;
   };
 
   checkNull = (value) => (value === null ? " " : ` ${value} `);

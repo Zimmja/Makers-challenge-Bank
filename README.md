@@ -11,10 +11,10 @@ As part of the Week 10 technical test at Makers Academy, I was challenged to cre
 
 **Acceptance criteria:**
 
-Given a client makes a deposit of 1000 on 10-01-2023
-And a deposit of 2000 on 13-01-2023
-And a withdrawal of 500 on 14-01-2023
-When she prints her bank statement
+Given a client makes a deposit of 1000 on 10-01-2023\
+And a deposit of 2000 on 13-01-2023\
+And a withdrawal of 500 on 14-01-2023\
+When she prints her bank statement\
 Then she would see
 
 ```
@@ -43,7 +43,7 @@ To use this code on your machine:
    - To make a withdrawal of e.g. £5.00, enter: `myAccount.withdraw(5)`
    - To view a statement, enter: `myAccount.statement()`
 
-## Setup and Technologies used
+## Setup
 
 I began the project with the following steps:
 
@@ -102,6 +102,19 @@ I decided I would need the following objects to fulfill these stories:
 
 ## Process
 
-I created the Transaction class first, followed by the Statement and Account classes. I used a TDD approach through, using Jest to test my classes. In each case, I used mocking to isolate tests and freeze variable inputs (e.g. date). I tried to minimise the impact of allowing objects to be mocked into functions by creating test-specific functions to check tests are running (see the bottom of account.js).
+I created the Transaction class first, followed by the Statement and Account classes. I used a TDD approach through, using Jest to run Feature and Unit tests for my classes. In each case, I used mocking to isolate tests and freeze variable inputs (e.g. date). I tried to minimise the impact of allowing objects to be mocked into functions by creating test-specific functions to check tests are running (see the bottom of account.js).
 
 Once all tests were passing, I used Node.js to test for edge cases, and amended the code where I found errors.
+
+After refactoring and improving test coverage to 100%, I installed ESLint (tested all three .js objects and found no issues) in the following way:
+
+1. Ran `npm install eslint --save-dev`
+2. Ran `npx eslint --init` and followed guidance in terminal
+3. Opened .eslintrc.js and added "node: true," to line 3
+
+## Technologies Used
+
+- Node
+- Jest
+- Prettier
+- ESLint
