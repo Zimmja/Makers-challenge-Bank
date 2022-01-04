@@ -49,3 +49,14 @@ describe(".getStatement", () => {
     ]);
   });
 });
+
+describe(".printStatement", () => {
+  test("Prints each line of .getStatement to the console", () => {
+    console.log = jest.fn();
+    sFull.printStatement();
+    expect(console.log.mock.calls.length).toBe(4);
+    expect(console.log.mock.calls[3][0]).toBe(
+      "10/01/2023 || 1000.00 || || 1000.00"
+    );
+  });
+});

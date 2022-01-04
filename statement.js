@@ -3,6 +3,11 @@ class Statement {
     this.transactions = transactions;
   }
 
+  printStatement = () => {
+    const sArr = this.getStatement();
+    sArr.forEach((line) => console.log(line));
+  };
+
   getStatement = () => {
     const mappedTrans = this.transactions.map((trans) =>
       this.createTransLine(trans.getData())
@@ -11,10 +16,10 @@ class Statement {
     return header.concat(mappedTrans.reverse());
   };
 
-  createTransLine = (tData) => {
-    const tCred = this.checkNull(tData.credit),
-      tDeb = this.checkNull(tData.debit);
-    return `${tData.date} ||${tCred}||${tDeb}|| ${tData.balance}`;
+  createTransLine = (trans) => {
+    const tCred = this.checkNull(trans.credit),
+      tDeb = this.checkNull(trans.debit);
+    return `${trans.date} ||${tCred}||${tDeb}|| ${trans.balance}`;
   };
 
   checkNull = (value) => (value === null ? " " : ` ${value} `);
