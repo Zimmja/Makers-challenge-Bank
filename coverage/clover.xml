@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1641391849016" clover="3.2.0">
-  <project timestamp="1641391849016" name="All files">
-    <metrics statements="82" coveredstatements="82" conditionals="34" coveredconditionals="34" methods="27" coveredmethods="27" elements="143" coveredelements="143" complexity="0" loc="82" ncloc="82" packages="3" files="4" classes="4"/>
+<coverage generated="1641392409566" clover="3.2.0">
+  <project timestamp="1641392409566" name="All files">
+    <metrics statements="86" coveredstatements="86" conditionals="34" coveredconditionals="34" methods="26" coveredmethods="26" elements="146" coveredelements="146" complexity="0" loc="86" ncloc="86" packages="3" files="4" classes="4"/>
     <package name="Bank">
       <metrics statements="29" coveredstatements="29" conditionals="13" coveredconditionals="13" methods="9" coveredmethods="9"/>
       <file name="account.js" path="/Users/zimmja/Desktop/MAKERS/Week10/Bank/account.js">
@@ -38,25 +38,26 @@
       </file>
     </package>
     <package name="Bank.lib">
-      <metrics statements="40" coveredstatements="40" conditionals="13" coveredconditionals="13" methods="15" coveredmethods="15"/>
+      <metrics statements="41" coveredstatements="41" conditionals="13" coveredconditionals="13" methods="14" coveredmethods="14"/>
       <file name="statement.js" path="/Users/zimmja/Desktop/MAKERS/Week10/Bank/lib/statement.js">
-        <metrics statements="16" coveredstatements="16" conditionals="2" coveredconditionals="2" methods="8" coveredmethods="8"/>
+        <metrics statements="17" coveredstatements="17" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="7"/>
         <line num="3" count="3" type="stmt"/>
         <line num="6" count="3" type="stmt"/>
         <line num="7" count="2" type="stmt"/>
-        <line num="8" count="7" type="stmt"/>
-        <line num="11" count="3" type="stmt"/>
-        <line num="12" count="4" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
         <line num="13" count="4" type="stmt"/>
-        <line num="16" count="3" type="stmt"/>
-        <line num="17" count="8" type="stmt"/>
-        <line num="18" count="4" type="stmt"/>
-        <line num="21" count="3" type="stmt"/>
-        <line num="22" count="8" type="stmt"/>
+        <line num="14" count="4" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="18" count="8" type="stmt"/>
+        <line num="19" count="4" type="stmt"/>
+        <line num="22" count="3" type="stmt"/>
         <line num="23" count="8" type="stmt"/>
         <line num="24" count="8" type="stmt"/>
-        <line num="27" count="16" type="cond" truecount="2" falsecount="0"/>
-        <line num="30" count="2" type="stmt"/>
+        <line num="25" count="8" type="stmt"/>
+        <line num="28" count="16" type="cond" truecount="2" falsecount="0"/>
+        <line num="31" count="2" type="stmt"/>
       </file>
       <file name="transaction.js" path="/Users/zimmja/Desktop/MAKERS/Week10/Bank/lib/transaction.js">
         <metrics statements="24" coveredstatements="24" conditionals="11" coveredconditionals="11" methods="7" coveredmethods="7"/>
@@ -87,9 +88,9 @@
       </file>
     </package>
     <package name="Bank.modules">
-      <metrics statements="13" coveredstatements="13" conditionals="8" coveredconditionals="8" methods="3" coveredmethods="3"/>
+      <metrics statements="16" coveredstatements="16" conditionals="8" coveredconditionals="8" methods="3" coveredmethods="3"/>
       <file name="formatter.js" path="/Users/zimmja/Desktop/MAKERS/Week10/Bank/modules/formatter.js">
-        <metrics statements="13" coveredstatements="13" conditionals="8" coveredconditionals="8" methods="3" coveredmethods="3"/>
+        <metrics statements="16" coveredstatements="16" conditionals="8" coveredconditionals="8" methods="3" coveredmethods="3"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="20" type="stmt"/>
         <line num="3" count="20" type="cond" truecount="2" falsecount="0"/>
@@ -103,6 +104,9 @@
         <line num="13" count="5" type="cond" truecount="2" falsecount="0"/>
         <line num="14" count="3" type="stmt"/>
         <line num="17" count="30" type="cond" truecount="2" falsecount="0"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
       </file>
     </package>
   </project>
