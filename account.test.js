@@ -23,16 +23,25 @@ describe(".deposit and .withdraw", () => {
 
   test("Returns an error if a non-monetary value is entered", () => {
     expect(() => tAcc.deposit("Ten", transDep01)).toThrowError(
-      "Entered value must be a number"
+      "ERROR: entered value must be a number"
     );
     expect(() => tAcc.deposit("10", transDep01)).not.toThrowError(
-      "Entered value must be a number"
+      "ERROR: entered value must be a number"
     );
   });
 
   test("Will not accept values of 0 for deposit or withdrawal", () => {
     expect(() => tAcc.deposit(0, transDep01)).toThrowError(
-      "Entered value must be greater than 0"
+      "ERROR: entered value must be greater than 0"
+    );
+    expect(() => tAcc.withdraw([], transDep01)).toThrowError(
+      "ERROR: entered value must be greater than 0"
+    );
+  });
+
+  test("Will not accept incorrect transaction objects", () => {
+    expect(() => tAcc.deposit(10, "transaction")).toThrowError(
+      "ERROR: invalid transaction"
     );
   });
 

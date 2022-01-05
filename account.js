@@ -25,8 +25,7 @@ class Account {
   //----------------------------------------------------------------
   beginTransaction = (amount, trsx) => {
     amount = this.validateInput(amount);
-    if (trsx === true || trsx === false)
-      trsx = new Transaction(this.balance, amount, trsx);
+    trsx = this.validateTransaction(amount, trsx);
     return this.handleTransaction(trsx);
   };
 
@@ -40,12 +39,28 @@ class Account {
     this.balance = Number(amount);
   };
 
+  // Object validation
+  //----------------------------------------------------------------
+  validateTransaction = (amount, trsx) => {
+    if (trsx === true || trsx === false)
+      trsx = new Transaction(this.balance, amount, trsx);
+    if (trsx.getData ? false : true) throw "ERROR: invalid transaction";
+    return trsx;
+  };
+
   validateInput = (amount) => {
     amount = Number(amount);
-    if (isNaN(amount)) throw "Entered value must be a number";
-    if (amount === 0) throw "Entered value must be greater than 0";
+    if (isNaN(amount)) throw "ERROR: entered value must be a number";
+    if (amount === 0) throw "ERROR: entered value must be greater than 0";
     return amount;
   };
 }
 
 module.exports = Account;
+
+// const myStatement = new Statement([]);
+// const myTransaction = new Transaction(0, 10, true);
+// const myMock = { getData: () => "hello" };
+// console.log(myStatement.getData ? true : false);
+// console.log(myTransaction.getData ? true : false);
+// console.log(myMock.getData ? true : false);
