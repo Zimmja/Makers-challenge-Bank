@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1641396509202" clover="3.2.0">
-  <project timestamp="1641396509202" name="All files">
-    <metrics statements="79" coveredstatements="79" conditionals="31" coveredconditionals="31" methods="26" coveredmethods="26" elements="136" coveredelements="136" complexity="0" loc="79" ncloc="79" packages="2" files="4" classes="4"/>
+<coverage generated="1641396660221" clover="3.2.0">
+  <project timestamp="1641396660221" name="All files">
+    <metrics statements="77" coveredstatements="77" conditionals="31" coveredconditionals="31" methods="26" coveredmethods="26" elements="134" coveredelements="134" complexity="0" loc="77" ncloc="77" packages="2" files="4" classes="4"/>
     <package name="Bank">
       <metrics statements="29" coveredstatements="29" conditionals="13" coveredconditionals="13" methods="9" coveredmethods="9"/>
       <file name="account.js" path="/Users/zimmja/Desktop/MAKERS/Week10/Bank/account.js">
@@ -38,23 +38,21 @@
       </file>
     </package>
     <package name="Bank.lib">
-      <metrics statements="50" coveredstatements="50" conditionals="18" coveredconditionals="18" methods="17" coveredmethods="17"/>
+      <metrics statements="48" coveredstatements="48" conditionals="18" coveredconditionals="18" methods="17" coveredmethods="17"/>
       <file name="formatter.js" path="/Users/zimmja/Desktop/MAKERS/Week10/Bank/lib/formatter.js">
-        <metrics statements="14" coveredstatements="14" conditionals="8" coveredconditionals="8" methods="3" coveredmethods="3"/>
+        <metrics statements="12" coveredstatements="12" conditionals="8" coveredconditionals="8" methods="3" coveredmethods="3"/>
         <line num="2" count="5" type="stmt"/>
         <line num="3" count="12" type="stmt"/>
         <line num="4" count="12" type="cond" truecount="2" falsecount="0"/>
         <line num="5" count="3" type="stmt"/>
         <line num="6" count="3" type="stmt"/>
-        <line num="7" count="3" type="stmt"/>
-        <line num="10" count="5" type="stmt"/>
+        <line num="9" count="5" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
         <line num="11" count="3" type="stmt"/>
-        <line num="12" count="3" type="stmt"/>
-        <line num="13" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="14" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="15" count="1" type="stmt"/>
-        <line num="18" count="10" type="cond" truecount="2" falsecount="0"/>
-        <line num="21" count="3" type="stmt"/>
+        <line num="12" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="16" count="10" type="cond" truecount="2" falsecount="0"/>
+        <line num="19" count="3" type="stmt"/>
       </file>
       <file name="statement.js" path="/Users/zimmja/Desktop/MAKERS/Week10/Bank/lib/statement.js">
         <metrics statements="17" coveredstatements="17" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="7"/>
