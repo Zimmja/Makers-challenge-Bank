@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1641382393411" clover="3.2.0">
-  <project timestamp="1641382393412" name="All files">
-    <metrics statements="82" coveredstatements="82" conditionals="36" coveredconditionals="36" methods="27" coveredmethods="27" elements="145" coveredelements="145" complexity="0" loc="82" ncloc="82" packages="2" files="3" classes="3"/>
+<coverage generated="1641383421273" clover="3.2.0">
+  <project timestamp="1641383421273" name="All files">
+    <metrics statements="82" coveredstatements="82" conditionals="36" coveredconditionals="35" methods="27" coveredmethods="27" elements="145" coveredelements="144" complexity="0" loc="82" ncloc="82" packages="2" files="3" classes="3"/>
     <package name="Bank">
       <metrics statements="32" coveredstatements="32" conditionals="15" coveredconditionals="15" methods="9" coveredmethods="9"/>
       <file name="account.js" path="/Users/zimmja/Desktop/MAKERS/Week10/Bank/account.js">
@@ -41,7 +41,7 @@
       </file>
     </package>
     <package name="Bank.lib">
-      <metrics statements="50" coveredstatements="50" conditionals="21" coveredconditionals="21" methods="18" coveredmethods="18"/>
+      <metrics statements="50" coveredstatements="50" conditionals="21" coveredconditionals="20" methods="18" coveredmethods="18"/>
       <file name="statement.js" path="/Users/zimmja/Desktop/MAKERS/Week10/Bank/lib/statement.js">
         <metrics statements="16" coveredstatements="16" conditionals="2" coveredconditionals="2" methods="8" coveredmethods="8"/>
         <line num="3" count="4" type="stmt"/>
@@ -62,7 +62,7 @@
         <line num="30" count="2" type="stmt"/>
       </file>
       <file name="transaction.js" path="/Users/zimmja/Desktop/MAKERS/Week10/Bank/lib/transaction.js">
-        <metrics statements="34" coveredstatements="34" conditionals="19" coveredconditionals="19" methods="10" coveredmethods="10"/>
+        <metrics statements="34" coveredstatements="34" conditionals="19" coveredconditionals="18" methods="10" coveredmethods="10"/>
         <line num="3" count="8" type="stmt"/>
         <line num="4" count="8" type="stmt"/>
         <line num="5" count="8" type="stmt"/>
