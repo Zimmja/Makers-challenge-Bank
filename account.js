@@ -24,8 +24,7 @@ class Account {
   // Support functions
   //----------------------------------------------------------------
   beginTransaction = (amount, trsx) => {
-    amount = Number(amount);
-    if (isNaN(amount)) throw "Entered value is not a number";
+    amount = this.validateInput(amount);
     if (trsx === true || trsx === false)
       trsx = new Transaction(this.balance, amount, trsx);
     return this.handleTransaction(trsx);
@@ -40,14 +39,13 @@ class Account {
   setBalance = (amount) => {
     this.balance = Number(amount);
   };
+
+  validateInput = (amount) => {
+    amount = Number(amount);
+    if (isNaN(amount)) throw "Entered value must be a number";
+    if (amount === 0) throw "Entered value must be greater than 0";
+    return amount;
+  };
 }
 
 module.exports = Account;
-
-// const c1 = true;
-// const c2 = false;
-// const c3 = "hello";
-
-// console.log(c1 === true);
-// console.log(c2 === true);
-// console.log(c3 === true);

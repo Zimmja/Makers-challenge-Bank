@@ -12,13 +12,13 @@ const tAcc = new Account();
 
 describe(".deposit and .withdraw", () => {
   test("Create a new transaction", () => {
-    tAcc.deposit(0, transDep01);
-    tAcc.withdraw(0, transWith01);
+    tAcc.deposit(1, transDep01);
+    tAcc.withdraw(1, transWith01);
     expect(tAcc.transactions.length).toBe(2);
   });
 
   test("Set Account.balance to the balance value of the transaction", () => {
-    expect(tAcc.deposit(0, transDep01)).toEqual(10);
+    expect(tAcc.deposit(1, transDep01)).toEqual(10);
   });
 
   test("Returns an error if a non-monetary value is entered", () => {
@@ -27,6 +27,12 @@ describe(".deposit and .withdraw", () => {
     );
     expect(() => tAcc.deposit("10", transDep01)).not.toThrowError(
       "Entered value must be a number"
+    );
+  });
+
+  test("Will not accept values of 0 for deposit or withdrawal", () => {
+    expect(() => tAcc.deposit(0, transDep01)).toThrowError(
+      "Entered value must be greater than 0"
     );
   });
 
