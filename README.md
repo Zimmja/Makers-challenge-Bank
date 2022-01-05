@@ -112,7 +112,7 @@ After refactoring and improving test coverage to 100%, I installed ESLint (teste
 2. Ran `npx eslint --init` and followed guidance in terminal
 3. Opened .eslintrc.js and added "node: true," to line 3
 
-I then completed the Makers self-reflection forms one-at-a-time, which led me to refine the design of the code, test suite and file structure. I also extracted formatting options from the Transaction class and established them as their own module.
+I then completed the Makers self-reflection forms one-at-a-time, which led me to refine the design of the code, test suite and file structure. I also extracted formatting options from the Transaction class and established them as their own class, isolating tests along the way. The ensured all classed were below 50 lines while maintaining test suite isolation and 100% coverage.
 
 ## Technologies Used
 
