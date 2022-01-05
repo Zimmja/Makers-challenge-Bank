@@ -7,23 +7,15 @@ class Account {
     this.transactions = [];
   }
 
-  // Primary functions for use in console
-  //----------------------------------------------------------------
-  deposit = (amount, trsx = true) => {
-    return this.beginTransaction(amount, trsx);
-  };
+  deposit = (amount, trsx = true) => this.beginTransaction(amount, trsx);
 
-  withdraw = (amount, trsx = false) => {
-    return this.beginTransaction(amount, trsx);
-  };
+  withdraw = (amount, trsx = false) => this.beginTransaction(amount, trsx);
 
   statement = (stmnt = new Statement(this.transactions)) => {
     if (!stmnt.printStatement) throw "ERROR: invalid statement";
     stmnt.printStatement();
   };
 
-  // Support functions
-  //----------------------------------------------------------------
   beginTransaction = (amount, trsx) => {
     amount = this.validateAmount(amount);
     trsx = this.validateTransaction(amount, trsx);
@@ -36,14 +28,10 @@ class Account {
     return this.balance;
   };
 
-  setBalance = (amount) => {
-    this.balance = Number(amount);
-  };
+  setBalance = (amount) => (this.balance = Number(amount));
 
-  // Object validation
-  //----------------------------------------------------------------
   validateTransaction = (amount, trsx) => {
-    if (trsx === true || trsx === false)
+    if (typeof trsx == "boolean")
       trsx = new Transaction(this.balance, amount, trsx);
     if (!trsx.getData) throw "ERROR: invalid transaction";
     return trsx;
