@@ -23,10 +23,10 @@ describe(".deposit and .withdraw", () => {
 
   test("Returns an error if a non-monetary value is entered", () => {
     expect(() => tAcc.deposit("Ten", transDep01)).toThrowError(
-      "Entered value is not a number"
+      "Entered value must be a number"
     );
     expect(() => tAcc.deposit("10", transDep01)).not.toThrowError(
-      "Entered value is not a number"
+      "Entered value must be a number"
     );
   });
 

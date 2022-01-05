@@ -9,11 +9,11 @@ class Account {
 
   // Primary functions for use in console
   //----------------------------------------------------------------
-  deposit = (amount, trsx = new Transaction(this.balance, amount, true)) => {
+  deposit = (amount, trsx = true) => {
     return this.beginTransaction(amount, trsx);
   };
 
-  withdraw = (amount, trsx = new Transaction(this.balance, amount, false)) => {
+  withdraw = (amount, trsx = false) => {
     return this.beginTransaction(amount, trsx);
   };
 
@@ -23,10 +23,12 @@ class Account {
 
   // Support functions
   //----------------------------------------------------------------
-  beginTransaction = (amount, transaction) => {
+  beginTransaction = (amount, trsx) => {
     amount = Number(amount);
     if (isNaN(amount)) throw "Entered value is not a number";
-    return this.handleTransaction(transaction);
+    if (trsx === true || trsx === false)
+      trsx = new Transaction(this.balance, amount, trsx);
+    return this.handleTransaction(trsx);
   };
 
   handleTransaction = (transaction) => {
@@ -41,3 +43,11 @@ class Account {
 }
 
 module.exports = Account;
+
+// const c1 = true;
+// const c2 = false;
+// const c3 = "hello";
+
+// console.log(c1 === true);
+// console.log(c2 === true);
+// console.log(c3 === true);
