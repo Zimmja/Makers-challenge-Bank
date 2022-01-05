@@ -35,7 +35,7 @@ To use this code on your machine:
 1. Download the contents of this repo to a local repository
 2. Check node and npm are installed with `node -v` and `npm -v` ; if not, install
 3. If you want to test with Jest, install Jest with `npm install jest` and run `jest` in the console from the root directory (/Bank)
-4. To use in Node:
+4. To use in Node, go to the root directory (/Bank) in the console and type as follows:
    - Open Node.js with `node`
    - Require the account.js file: `const Account = require("./account.js")`
    - Create a new account: `const myAccount = new Account`
@@ -111,6 +111,8 @@ After refactoring and improving test coverage to 100%, I installed ESLint (teste
 1. Ran `npm install eslint --save-dev`
 2. Ran `npx eslint --init` and followed guidance in terminal
 3. Opened .eslintrc.js and added "node: true," to line 3
+
+I then completed the Makers self-reflection forms one-at-a-time, which led me to refine the design of the code, test suite and file structure.
 
 ## Technologies Used
 

@@ -1,5 +1,5 @@
-const Transaction = require("./transaction.js");
-const Statement = require("./statement.js");
+const Transaction = require("./lib/transaction.js");
+const Statement = require("./lib/statement.js");
 
 class Account {
   constructor() {
