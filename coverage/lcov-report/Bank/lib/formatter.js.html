@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for Bank/modules/formatter.js</title>
+    <title>Code coverage report for Bank/lib/formatter.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">Bank/modules</a> formatter.js</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">Bank/lib</a> formatter.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>20/20</span>
+                <span class='fraction'>18/18</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>16/16</span>
+                <span class='fraction'>14/14</span>
             </div>
         
             
@@ -78,48 +78,48 @@
 <a name='L19'></a><a href='#L19'>19</a>
 <a name='L20'></a><a href='#L20'>20</a>
 <a name='L21'></a><a href='#L21'>21</a>
-<a name='L22'></a><a href='#L22'>22</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">20x</span>
-<span class="cline-any cline-yes">20x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
+<a name='L22'></a><a href='#L22'>22</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">30x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const fMoney = (balance) =&gt; {
-  const balanceInt = parseInt(balance);
-  if (balanceInt === balance) return `${balance}.00`;
-  const decs = balance.toString().split(".")[1];
-  const decsFormatted = this.fDecimal(decs);
-  return `${balanceInt}.${decsFormatted}`;
-};
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">class Formatter {
+  money = (balance) =&gt; {
+    const balanceInt = parseInt(balance);
+    if (balanceInt === balance) return `${balance}.00`;
+    const decs = balance.toString().split(".")[1];
+    const decsFormatted = this.decimal(decs);
+    return `${balanceInt}.${decsFormatted}`;
+  };
 &nbsp;
-const fDecimal = (decimal) =&gt; {
-  const decimalNumbers = decimal.split("");
-  const decimalLen = decimalNumbers.length;
-  if (decimalLen &lt;= 1) return `${decimal}0`;
-  if (decimalLen &gt; 2) return `${decimalNumbers.slice(0, 2).join("")}`;
-  return decimal;
-};
+  decimal = (decimal) =&gt; {
+    const decimalNumbers = decimal.split("");
+    const decimalLen = decimalNumbers.length;
+    if (decimalLen &lt;= 1) return `${decimal}0`;
+    if (decimalLen &gt; 2) return `${decimalNumbers.slice(0, 2).join("")}`;
+    return decimal;
+  };
 &nbsp;
-const fTime = (time) =&gt; (time &lt; 10 ? `0${time}` : `${time}`);
+  time = (time) =&gt; (time &lt; 10 ? `0${time}` : `${time}`);
+}
 &nbsp;
-exports.fMoney = fMoney;
-exports.fDecimal = fDecimal;
-exports.fTime = fTime;
+module.exports = Formatter;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -127,7 +127,7 @@ exports.fTime = fTime;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Jan 05 2022 14:37:30 GMT+0000 (Greenwich Mean Time)
+                at Wed Jan 05 2022 14:42:47 GMT+0000 (Greenwich Mean Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

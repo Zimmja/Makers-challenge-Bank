@@ -25,14 +25,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>26/26</span>
+                <span class='fraction'>23/23</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>11/11</span>
+                <span class='fraction'>12/12</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>24/24</span>
+                <span class='fraction'>22/22</span>
             </div>
         
             
@@ -103,15 +103,10 @@
 <a name='L44'></a><a href='#L44'>44</a>
 <a name='L45'></a><a href='#L45'>45</a>
 <a name='L46'></a><a href='#L46'>46</a>
-<a name='L47'></a><a href='#L47'>47</a>
-<a name='L48'></a><a href='#L48'>48</a>
-<a name='L49'></a><a href='#L49'>49</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+<a name='L47'></a><a href='#L47'>47</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-yes">8x</span>
@@ -137,6 +132,7 @@
 <span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-yes">20x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">8x</span>
@@ -153,7 +149,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const formatter = require("../modules/formatter.js");
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const Formatter = require("./formatter.js");
 &nbsp;
 class Transaction {
   constructor(balance, amount, isDeposit = true, date = new Date()) {
@@ -161,41 +157,39 @@ class Transaction {
     this.balance = balance;
     this.amount = amount;
     this.isDeposit = isDeposit;
-    this.formatMoney = formatter.fMoney;
-    this.formatDecimal = formatter.fDecimal;
-    this.formatTime = formatter.fTime;
   }
 &nbsp;
   // Primary function
   //----------------------------------------------------------------
-  getData = () =&gt; {
+  getData = (format = new Formatter()) =&gt; {
     return {
-      date: this.transDate(),
-      balance: this.transBalance(),
-      credit: this.transCredit(),
-      debit: this.transDebit(),
+      date: this.transDate(format),
+      balance: this.transBalance(format),
+      credit: this.transCredit(format),
+      debit: this.transDebit(format),
     };
   };
 &nbsp;
   // Define the values within the hash returned by getData()
   //----------------------------------------------------------------
-  transDebit = (amount = this.amount) =&gt;
-    this.transMoney(amount, this.isDeposit);
+  transDebit = (format, amount = this.amount) =&gt;
+    this.transMoney(format, amount, this.isDeposit);
 &nbsp;
-  transCredit = (amount = this.amount) =&gt;
-    this.transMoney(amount, !this.isDeposit);
+  transCredit = (format, amount = this.amount) =&gt;
+    this.transMoney(format, amount, !this.isDeposit);
 &nbsp;
-  transMoney = (amount, nullify) =&gt; (nullify ? null : this.formatMoney(amount));
+  transMoney = (format, amount, nullify) =&gt;
+    nullify ? null : format.money(amount);
 &nbsp;
-  transBalance = (balance = this.balance, amount = this.amount) =&gt; {
+  transBalance = (format, balance = this.balance, amount = this.amount) =&gt; {
     if (!this.isDeposit) amount = 0 - amount;
-    return this.formatMoney(balance + amount);
+    return format.money(balance + amount);
   };
 &nbsp;
-  transDate = (time = this.date) =&gt; {
-    const day = this.formatTime(time.getDate()),
-      month = this.formatTime(time.getMonth() + 1),
-      year = this.formatTime(time.getFullYear());
+  transDate = (format, date = this.date) =&gt; {
+    const day = format.time(date.getDate()),
+      month = format.time(date.getMonth() + 1),
+      year = format.time(date.getFullYear());
     return `${day}/${month}/${year}`;
   };
 }
@@ -208,7 +202,7 @@ module.exports = Transaction;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Jan 05 2022 14:20:09 GMT+0000 (Greenwich Mean Time)
+                at Wed Jan 05 2022 14:42:47 GMT+0000 (Greenwich Mean Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>
