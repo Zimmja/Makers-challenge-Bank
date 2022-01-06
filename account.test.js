@@ -1,12 +1,8 @@
 const Account = require("./account.js");
 
-const transDep15 = { getData: () => depos };
-const depos = {
+const transTransaction = { getData: () => testTransactionBalance };
+const testTransactionBalance = {
   balance: "15.00",
-};
-const transWith09 = { getData: () => withd };
-const withd = {
-  balance: "6.00",
 };
 const transDum = { getData: () => null };
 const tAcc = new Account();
@@ -18,14 +14,14 @@ describe(".deposit / .withdraw", () => {
   });
 
   test("Creates a new transaction object that is added to the transactions list", () => {
-    tAcc.deposit(1, transDep15);
-    tAcc.withdraw(1, transWith09);
+    tAcc.deposit(1, transTransaction);
+    tAcc.withdraw(1, transTransaction);
     expect(tAcc.transactions.length).toBe(2);
   });
 
   test("Sets Account.balance to the balance value of the transaction", () => {
-    expect(tAcc.deposit(1, transDep15)).toEqual(15);
-    expect(tAcc.withdraw(1, transWith09)).toEqual(6);
+    expect(tAcc.deposit(1, transTransaction)).toEqual(15);
+    expect(tAcc.withdraw(1, transTransaction)).toEqual(15);
   });
 
   test("Returns an error if a non-numerical value is entered", () => {
