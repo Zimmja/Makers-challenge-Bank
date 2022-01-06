@@ -3,9 +3,14 @@ const Statement = require("./lib/statement.js");
 
 class Account {
   constructor() {
-    this.balance = 0;
     this.transactions = [];
   }
+
+  aBalance = () => {
+    const lastTransaction = this.transactions[this.transactions.length - 1];
+    if (!lastTransaction) return 0;
+    return Number(lastTransaction.getData().balance);
+  };
 
   deposit = (amount, trsx = true) => this.beginTransaction(amount, trsx);
 
@@ -24,15 +29,12 @@ class Account {
 
   handleTransaction = (transaction) => {
     this.transactions.push(transaction);
-    this.setBalance(transaction.getData().balance);
-    return this.balance;
+    return this.aBalance();
   };
-
-  setBalance = (amount) => (this.balance = Number(amount));
 
   validateTransaction = (amount, trsx) => {
     if (typeof trsx == "boolean")
-      trsx = new Transaction(this.balance, amount, trsx);
+      trsx = new Transaction(this.aBalance(), amount, trsx);
     if (!trsx.getData) throw "ERROR: invalid transaction";
     return trsx;
   };

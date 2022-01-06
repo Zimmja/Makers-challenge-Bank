@@ -50,6 +50,7 @@ describe(".deposit / .withdraw", () => {
   });
 
   test("Checking Transaction objects for 100% coverage", () => {
+    console.log("PROPS");
     expect(tAcc.deposit(10)).toEqual(10);
     expect(tAcc.withdraw(5)).toEqual(5);
   });
